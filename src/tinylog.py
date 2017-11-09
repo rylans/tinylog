@@ -12,7 +12,7 @@ class tinylog:
     """
     Initialize the logger, open the output file and set the logging level.
     """
-    self.filename = open(filename, "a+")
+    self.filehandle = open(filename, "a+")
     self.level = level
 
   def setLevel(self, level):
@@ -28,7 +28,7 @@ class tinylog:
     if (lvl >= self.level):
       t = str(datetime.datetime.utcnow()).split('.')[0]
       output_message = t + " " + levelstring + " " + msg
-      self.filename.write(output_message + "\n")
+      self.filehandle.write(output_message + "\n")
 
   def debug(self, msg):
     """
